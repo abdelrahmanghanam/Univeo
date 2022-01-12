@@ -37,9 +37,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var newsAdapter: NewsAdapter
     private val news = mutableListOf(
-        NewsGeneral("presidint said that we will achieve goal","http://www.google.com"),
-        NewsGeneral("presidint said that we will achieve goal","http://www.google.com"),
-        NewsGeneral("presidint said that we will achieve goal","http://www.google.com"),
+        NewsGeneral("presidint said that we will achieve goal","http://www.google.com","https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png"),
+        NewsGeneral("presidint said that we will achieve goal","http://www.google.com","https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png"),
     )
 
 

@@ -2,7 +2,6 @@ package ghanam.com.univeo.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
@@ -14,11 +13,11 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import ghanam.com.univeo.R
-import ghanam.com.univeo.adapters.UniversitiesAdapter
 import ghanam.com.univeo.databinding.ActivityHomePageBinding
 import ghanam.com.univeo.databinding.NavHeaderHomePageBinding
-import ghanam.com.univeo.dataclasses.UniversityGeneral
 import ghanam.com.univeo.login.LoginActivity
+import ghanam.com.univeo.test.TestActivity
+import ghanam.com.univeo.university.UniversityActivity
 
 class HomePageActivity : AppCompatActivity() {
 
@@ -49,7 +48,8 @@ class HomePageActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         navView.setNavigationItemSelectedListener{ it: MenuItem ->
             when (it.itemId) {
-                R.id.nav_test -> doThat()
+                R.id.nav_test -> goToTestActivity()
+                R.id.nav_about->goToUniversityActivity()
                 R.id.nav_out-> doThat()
                 else -> {
                     true
@@ -82,11 +82,29 @@ class HomePageActivity : AppCompatActivity() {
         return true
     }
 
+    private fun goToTestActivity(): Boolean{
+        val intent = Intent(this,  TestActivity::class.java)
+        finish()
+        startActivity(intent)
+        return true
+    }
+
+
+    private fun goToUniversityActivity(): Boolean{
+        val intent = Intent(this,  UniversityActivity::class.java)
+        finish()
+        startActivity(intent)
+        return true
+    }
+
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.home_page, menu)
         return true
     }
+
+
 
 
 
