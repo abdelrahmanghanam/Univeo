@@ -8,16 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import ghanam.com.univeo.R
-import ghanam.com.univeo.adapters.NewsAdapter
 import ghanam.com.univeo.adapters.QuizAdapter
-import ghanam.com.univeo.adapters.UniversitiesAdapter
 import ghanam.com.univeo.databinding.FragmentTestQuestionsBinding
-import ghanam.com.univeo.databinding.FragmentTestResultBinding
 import ghanam.com.univeo.dataclasses.Quiz
-import ghanam.com.univeo.dataclasses.UniversityGeneral
 
 
-class testQuestionsFragment : Fragment() {
+class TestQuestionsFragment : Fragment() {
     lateinit var binding: FragmentTestQuestionsBinding
     private lateinit var testAdapter: QuizAdapter
     private val questions = mutableListOf(
@@ -30,7 +26,7 @@ class testQuestionsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentTestQuestionsBinding.inflate(inflater, container, false)
 
         //test adapter maker

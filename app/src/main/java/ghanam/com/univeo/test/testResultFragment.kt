@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ghanam.com.univeo.R
-import ghanam.com.univeo.databinding.FragmentLoginBinding
 import ghanam.com.univeo.databinding.FragmentTestResultBinding
 import ghanam.com.univeo.home.HomePageActivity
 
@@ -18,7 +16,7 @@ class testResultFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentTestResultBinding.inflate(inflater, container, false)
 
         binding.backButton.setOnClickListener {

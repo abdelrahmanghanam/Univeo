@@ -12,9 +12,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import ghanam.com.univeo.R
 import ghanam.com.univeo.databinding.ActivityHomePageBinding
 import ghanam.com.univeo.databinding.NavHeaderHomePageBinding
+import ghanam.com.univeo.extensions.GeneralExt.toast
 import ghanam.com.univeo.login.LoginActivity
 import ghanam.com.univeo.test.TestActivity
 import ghanam.com.univeo.university.UniversityActivity
@@ -23,6 +25,7 @@ class HomePageActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityHomePageBinding
+    val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +53,7 @@ class HomePageActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_test -> goToTestActivity()
                 R.id.nav_about->goToUniversityActivity()
-                R.id.nav_out-> doThat()
+                R.id.nav_out-> signOut()
                 else -> {
                     true
                 }
@@ -73,6 +76,15 @@ class HomePageActivity : AppCompatActivity() {
 
 
 
+    }
+
+    private fun signOut(): Boolean {
+        firebaseAuth.signOut()
+        toast("Signed out")
+        val intent = Intent(this,  LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+        return true
     }
 
     private fun doThat(): Boolean {

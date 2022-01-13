@@ -5,6 +5,7 @@ package ghanam.com.univeo.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import ghanam.com.univeo.databinding.UniversitiesCardBinding
 import ghanam.com.univeo.dataclasses.UniversityGeneral
 
@@ -30,7 +31,7 @@ class UniversitiesAdapter(  private val universities: MutableList<UniversityGene
             rankText.text=currentUni.rank
             cityText.text=currentUni.location
             universityTitle.text=currentUni.title
-
+            Picasso.with(universityImage.context).load(currentUni.imgUrl).into(universityImage);
 
 
         }

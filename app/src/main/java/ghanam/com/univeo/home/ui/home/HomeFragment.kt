@@ -1,15 +1,11 @@
 package ghanam.com.univeo.home.ui.home
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import ghanam.com.univeo.R
 import ghanam.com.univeo.adapters.NewsAdapter
@@ -17,8 +13,7 @@ import ghanam.com.univeo.adapters.UniversitiesAdapter
 import ghanam.com.univeo.databinding.FragmentHomeBinding
 import ghanam.com.univeo.dataclasses.NewsGeneral
 import ghanam.com.univeo.dataclasses.UniversityGeneral
-import ghanam.com.univeo.extensions.AnimationExt.blink
-import ghanam.com.univeo.extensions.AnimationExt.zoom
+
 
 
 class HomeFragment : Fragment() {
@@ -30,9 +25,9 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var universitiesAdapter: UniversitiesAdapter
     private val universities = mutableListOf(
-        UniversityGeneral("Cairo University","35","Cairo",2,"nourl"),
-        UniversityGeneral("Cairo University","35","Cairo",2,"nourl"),
-        UniversityGeneral("Cairo University","35","Cairo",2,"nourl")
+        UniversityGeneral("Cairo University","35","Cairo",2,"https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png"),
+        UniversityGeneral("Cairo University","35","Cairo",2,"https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png"),
+        UniversityGeneral("Cairo University","35","Cairo",2,"https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png")
     )
 
     private lateinit var newsAdapter: NewsAdapter
@@ -46,7 +41,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val latestNewsButton= binding.latestNewsBtn

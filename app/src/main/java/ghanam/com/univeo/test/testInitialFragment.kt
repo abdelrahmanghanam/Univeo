@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import ghanam.com.univeo.R
 import ghanam.com.univeo.databinding.FragmentTestInitialBinding
-import ghanam.com.univeo.databinding.FragmentTestQuestionsBinding
 import ghanam.com.univeo.home.HomePageActivity
 
 class testInitialFragment : Fragment() {

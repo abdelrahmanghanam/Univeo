@@ -5,7 +5,6 @@ package ghanam.com.univeo.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ghanam.com.univeo.databinding.MajorCardBinding
 import ghanam.com.univeo.databinding.QuestionCardBinding
 import ghanam.com.univeo.dataclasses.Quiz
 

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import ghanam.com.univeo.R
-import ghanam.com.univeo.databinding.ActivityLoginBinding
 import ghanam.com.univeo.databinding.ActivityTestBinding
 
 class TestActivity : AppCompatActivity() {

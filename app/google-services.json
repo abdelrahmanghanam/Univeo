@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "300586491757",
+    "project_id": "univeo-5f6a5",
+    "storage_bucket": "univeo-5f6a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300586491757:android:0fd28012eb5fbb3b0a0464",
+        "android_client_info": {
+          "package_name": "ghanam.com.univeo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300586491757-dlac88bqngvbsh3r42vhikj6uf1nki9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAQCz6fyxk06mP6ZNiQZXGXaix9KzdlZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300586491757-dlac88bqngvbsh3r42vhikj6uf1nki9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

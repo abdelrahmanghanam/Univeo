@@ -64,4 +64,6 @@
     <string name="choice1">choice1</string>
     <string name="choice2">choice2</string>
     <string name="choice3">choice3</string>
+    <string name="i_agree_on_terms_and_conditions">I agree on terms and conditions</string>
+    <string name="already_have_an_account">Already have an account</string>
 </resources>

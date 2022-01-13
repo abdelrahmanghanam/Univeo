@@ -1,9 +1,11 @@
 package ghanam.com.univeo.extensions
 
 import android.app.Activity
+import android.graphics.Color
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.snackbar.Snackbar
 
 object GeneralExt {
@@ -15,9 +17,12 @@ object GeneralExt {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
-    fun showSnack(msg: String, it: View){
-        Snackbar.make(it, msg, Snackbar.LENGTH_LONG)
-            .setAction("Action", null)
-            .show()
+    fun Fragment.showSnack(msg: String, label: String, it: View){
+        val snackBar=Snackbar.make(it, label, Snackbar.LENGTH_SHORT)
+        snackBar.setAction(msg){
+
+        }
+        snackBar.setTextColor(Color.RED)
+        snackBar.show()
     }
 }

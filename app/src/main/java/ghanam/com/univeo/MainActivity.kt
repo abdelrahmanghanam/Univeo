@@ -10,6 +10,8 @@ import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.DataBindingUtil.*
 import ghanam.com.univeo.databinding.ActivityMainBinding
+import ghanam.com.univeo.extensions.AnimationExt.clockwise
+import ghanam.com.univeo.extensions.AnimationExt.fade
 import ghanam.com.univeo.extensions.AnimationExt.slideIn
 import ghanam.com.univeo.login.LoginActivity
 
@@ -19,10 +21,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         getSupportActionBar()!!.hide(); //hide the title bar
-        binding.logoImage.slideIn(2000L,0L)
-        Log.w("TAG","test 1")
+        binding.logoDown.slideIn(2000L,0L)
+        binding.logoTop.clockwise(1500L,0L)
         move()
-        Log.w("TAG","test 2")
+
     }
 
 

@@ -1,18 +1,14 @@
 package ghanam.com.univeo.university
 
-import android.bluetooth.BluetoothClass
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import ghanam.com.univeo.R
-import ghanam.com.univeo.adapters.FacultyAdapter
 import ghanam.com.univeo.adapters.MajorAdapter
 import ghanam.com.univeo.databinding.FragmentFacultyBinding
-import ghanam.com.univeo.databinding.FragmentUniversityBinding
-import ghanam.com.univeo.dataclasses.FacultyGeneral
+
 
 class FacultyFragment : Fragment() {
 
@@ -26,7 +22,7 @@ class FacultyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentFacultyBinding.inflate(inflater, container, false)
 
