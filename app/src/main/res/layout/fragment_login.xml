@@ -17,12 +17,12 @@
             android:id="@+id/logo_image"
             android:layout_width="111dp"
             android:layout_height="143dp"
-            android:layout_marginTop="288dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/todo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.473"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_logo_image"
             app:srcCompat="@drawable/login_logo"
             tools:ignore="ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck" />
 
@@ -62,7 +62,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                tools:ignore="TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                />
+                tools:ignore="TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,7 +123,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/message_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="88dp"
@@ -141,22 +141,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginBottom="24dp"
-            android:text="@string/sign_up"
+            android:text="@string/sign_up2"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="@+id/password_editText"
+            app:layout_constraintStart_toEndOf="@+id/message_text"
             app:layout_constraintTop_toBottomOf="@+id/login_button"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/forgot_password_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/forgot_password"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.684"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/password_editText"
             app:layout_constraintTop_toBottomOf="@+id/password_editText"
             tools:ignore="TextContrastCheck" />
 
@@ -165,13 +165,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
+            android:backgroundTint="@color/design_orange"
             android:text="@string/login"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/forgot_password_link"
             tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="4dp"
+            android:theme="@style/Theme.Univeo.orangeAccent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/message_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

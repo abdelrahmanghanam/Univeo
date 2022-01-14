@@ -6,9 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ghanam.com.univeo.databinding.FacultyCardBinding
 import ghanam.com.univeo.dataclasses.FacultyGeneral
+import android.os.Bundle
+import androidx.navigation.Navigation
+import ghanam.com.univeo.R
+import ghanam.com.univeo.singletons.DBReader
 
 
-class FacultyAdapter(  private val Faculties: MutableList<FacultyGeneral>
+class FacultyAdapter(  private val Faculties: MutableList<HashMap<String, Any>>
 ) : RecyclerView.Adapter<FacultyAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(val binding: FacultyCardBinding) : RecyclerView.ViewHolder(binding.root)
@@ -19,15 +23,19 @@ class FacultyAdapter(  private val Faculties: MutableList<FacultyGeneral>
         )
     }
 
-    fun addFaculty(msg: FacultyGeneral) {
-        Faculties.add(msg)
+    fun addFaculty(fac: HashMap<String, Any>) {
+        Faculties.add(fac)
         notifyItemInserted(Faculties.size - 1)
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val currentFaculty = Faculties[position]
         holder.binding.apply {
-
+            facultyButton.text=currentFaculty["name"] as String
+            facultyButton.setOnClickListener {
+                DBReader.currentFaculty=currentFaculty
+                Navigation.findNavController(it).navigate(R.id.action_universityFragment_to_facultyFragment)
+            }
         }
     }
 

@@ -2,6 +2,7 @@ package ghanam.com.univeo.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
@@ -12,14 +13,15 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import com.google.firebase.auth.FirebaseAuth
 import ghanam.com.univeo.R
 import ghanam.com.univeo.databinding.ActivityHomePageBinding
 import ghanam.com.univeo.databinding.NavHeaderHomePageBinding
 import ghanam.com.univeo.extensions.GeneralExt.toast
 import ghanam.com.univeo.login.LoginActivity
+import ghanam.com.univeo.singletons.CurrentUser
 import ghanam.com.univeo.test.TestActivity
-import ghanam.com.univeo.university.UniversityActivity
 
 class HomePageActivity : AppCompatActivity() {
 
@@ -51,8 +53,9 @@ class HomePageActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         navView.setNavigationItemSelectedListener{ it: MenuItem ->
             when (it.itemId) {
+                R.id.nav_home->goToHomeFragment(navController)
                 R.id.nav_test -> goToTestActivity()
-                R.id.nav_about->goToUniversityActivity()
+                R.id.nav_about->goToAboutFragment(navController)
                 R.id.nav_out-> signOut()
                 else -> {
                     true
@@ -71,12 +74,23 @@ class HomePageActivity : AppCompatActivity() {
        //acount maker
         val header=binding.navView.getHeaderView(0)
         val headerBinding: NavHeaderHomePageBinding = NavHeaderHomePageBinding.bind(header)
-//        Log.w("Tag", headerBinding.firstCTxt.text.toString())
+        headerBinding.firstCTxt.text= CurrentUser.firstName[0].toString()
+        headerBinding.nameTxt.text=CurrentUser.firstName+" "+CurrentUser.lastName
+        headerBinding.city.text=CurrentUser.city
+
 
 
 
 
     }
+
+    private fun goToHomeFragment(navController: NavController): Boolean {
+        if (navController.currentDestination!!.id!=R.id.nav_home) {
+            navController.navigate(R.id.action_nav_about_to_nav_home)
+        }
+        return true
+    }
+
 
     private fun signOut(): Boolean {
         firebaseAuth.signOut()
@@ -102,10 +116,10 @@ class HomePageActivity : AppCompatActivity() {
     }
 
 
-    private fun goToUniversityActivity(): Boolean{
-        val intent = Intent(this,  UniversityActivity::class.java)
-        finish()
-        startActivity(intent)
+    private fun goToAboutFragment(navController: NavController): Boolean{
+        if (navController.currentDestination!!.id!=R.id.nav_about) {
+            navController.navigate(R.id.action_nav_home_to_nav_about)
+        }
         return true
     }
 

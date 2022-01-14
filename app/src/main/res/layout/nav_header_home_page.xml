@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="false"
+    android:layout_marginTop="20dp"
     android:background="@color/white"
     android:gravity="bottom|center_horizontal"
     android:orientation="vertical"
@@ -15,11 +16,13 @@
 
     <TextView
         android:id="@+id/first_c_txt"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/circle"
+        android:gravity="center"
         android:text="@string/a"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="72sp" />
 
     <TextView
@@ -35,7 +38,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cairo"

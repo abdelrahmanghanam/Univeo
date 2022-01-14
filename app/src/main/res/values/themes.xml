@@ -18,7 +18,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
+    <style name="Theme.Univeo.orangeAccent">
+        <item name="colorAccent">@color/design_orange</item> <!-- Whatever color you want-->
+    </style>
     <style name="Theme.Univeo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Univeo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

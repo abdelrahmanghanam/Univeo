@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/testQuestionsFragment"
-        android:name="ghanam.com.univeo.test.testQuestionsFragment"
+        android:name="ghanam.com.univeo.test.TestQuestionsFragment"
         android:label="fragment_test_questions"
         tools:layout="@layout/fragment_test_questions" >
         <action

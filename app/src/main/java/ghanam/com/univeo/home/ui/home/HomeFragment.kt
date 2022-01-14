@@ -11,9 +11,8 @@ import ghanam.com.univeo.R
 import ghanam.com.univeo.adapters.NewsAdapter
 import ghanam.com.univeo.adapters.UniversitiesAdapter
 import ghanam.com.univeo.databinding.FragmentHomeBinding
-import ghanam.com.univeo.dataclasses.NewsGeneral
-import ghanam.com.univeo.dataclasses.UniversityGeneral
-
+import ghanam.com.univeo.singletons.CurrentUser
+import ghanam.com.univeo.singletons.DBReader
 
 
 class HomeFragment : Fragment() {
@@ -24,17 +23,7 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var universitiesAdapter: UniversitiesAdapter
-    private val universities = mutableListOf(
-        UniversityGeneral("Cairo University","35","Cairo",2,"https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png"),
-        UniversityGeneral("Cairo University","35","Cairo",2,"https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png"),
-        UniversityGeneral("Cairo University","35","Cairo",2,"https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png")
-    )
-
     private lateinit var newsAdapter: NewsAdapter
-    private val news = mutableListOf(
-        NewsGeneral("presidint said that we will achieve goal","http://www.google.com","https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png"),
-        NewsGeneral("presidint said that we will achieve goal","http://www.google.com","https://amayei.nyc3.digitaloceanspaces.com/2019/05/sisi-on-may-5-2019.png"),
-    )
 
 
     override fun onCreateView(
@@ -63,16 +52,18 @@ class HomeFragment : Fragment() {
 
         }
 
+
         //university adapter maker
-        universitiesAdapter = UniversitiesAdapter(universities)
+        universitiesAdapter = UniversitiesAdapter(DBReader.universitiesHomeList)
+        DBReader.readData(universitiesAdapter)
         binding.universitiesRecycler.adapter=universitiesAdapter
         binding.universitiesRecycler.layoutManager = LinearLayoutManager(context)
 
         //news adapter maker
-        newsAdapter = NewsAdapter(news)
+        newsAdapter = NewsAdapter(DBReader.newsHomeList)
         binding.newsRecycler.adapter=newsAdapter
         binding.newsRecycler.layoutManager = LinearLayoutManager(context)
-
+        binding.firstNameTextView.text= CurrentUser.firstName
         return binding.root
     }
 

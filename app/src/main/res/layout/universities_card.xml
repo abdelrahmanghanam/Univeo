@@ -29,7 +29,7 @@
         android:contentDescription="@string/todo"
         app:layout_constraintStart_toEndOf="@+id/university_image"
         app:layout_constraintTop_toBottomOf="@+id/university_title"
-        app:srcCompat="@drawable/ic_location" />
+        app:srcCompat="@drawable/ic_location_oran" />
 
     <ImageView
         android:id="@+id/rank_ic"
@@ -40,20 +40,21 @@
         android:contentDescription="@string/todo"
         app:layout_constraintStart_toEndOf="@+id/university_image"
         app:layout_constraintTop_toBottomOf="@+id/location_ic"
-        app:srcCompat="@drawable/ic_number" />
+        app:srcCompat="@drawable/ic_rank_oran" />
 
     <TextView
         android:id="@+id/university_title"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
-        android:maxEms="10"
-        android:maxLength="14"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/cairo"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/university_image"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,30 +63,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
         android:text="@string/cairo"
+        app:layout_constraintBottom_toBottomOf="@+id/location_ic"
         app:layout_constraintStart_toEndOf="@+id/location_ic"
-        app:layout_constraintTop_toBottomOf="@+id/university_title" />
+        app:layout_constraintTop_toTopOf="@+id/location_ic" />
 
     <TextView
         android:id="@+id/rank_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
         android:text="@string/cairo"
+        app:layout_constraintBottom_toBottomOf="@+id/rank_ic"
         app:layout_constraintStart_toEndOf="@+id/rank_ic"
-        app:layout_constraintTop_toBottomOf="@+id/city_text" />
+        app:layout_constraintTop_toTopOf="@+id/rank_ic" />
 
     <Button
         android:id="@+id/explore_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/design_orange"
         android:text="@string/explore"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toEndOf="@+id/university_image" />
+        app:layout_constraintStart_toEndOf="@+id/university_image"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

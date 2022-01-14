@@ -63,9 +63,9 @@
             android:id="@+id/choice1_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/choice1"
             android:buttonTint="@color/design_orange"
-            />
+            android:text="@string/choice1"
+            tools:ignore="TextContrastCheck" />
 
         <RadioButton
             android:id="@+id/choice2_text"

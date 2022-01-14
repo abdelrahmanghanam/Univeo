@@ -53,12 +53,13 @@
             android:id="@+id/youtube_video"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            app:autoPlay="true"
+            app:autoPlay="false"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            app:showFullScreenButton="true"
-            app:videoId="ixJJgR-thaA" />
+            app:showFullScreenButton="false"
+            app:videoId="ixJJgR-thaA"
+            />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
@@ -110,7 +111,7 @@
                 app:layout_constraintGuide_begin="42dp" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/city_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -122,7 +123,7 @@
                 app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/rank_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -156,18 +157,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/brief_text"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:maxLines="3"
-                android:text="@string/vivamus_efficitur_vestibulum_elit_id_semper_donec_eleifend_metus_justo_ac_luctus_arcu_finibus_non_phasellus_dignissim_diam_ac_ipsum_egestas_malesuada_non_mollis_metus_aenean_luctus_ex_sit_amet_elementum_tincidunt_duis"
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:layout_margin="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/brief_text"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/vivamus_efficitur_vestibulum_elit_id_semper_donec_eleifend_metus_justo_ac_luctus_arcu_finibus_non_phasellus_dignissim_diam_ac_ipsum_egestas_malesuada_non_mollis_metus_aenean_luctus_ex_sit_amet_elementum_tincidunt_duis" />
+                </LinearLayout>
+            </ScrollView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -177,12 +188,11 @@
             android:layout_height="125dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rectangle_rounded_corners"
-            app:layout_constraintBottom_toTopOf="@+id/map"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-            app:layout_constraintVertical_bias="0.175">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
             <TextView
                 android:id="@+id/textView17"
@@ -207,19 +217,29 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView17" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/map"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/todo"
-            android:scaleType="fitXY"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout8"
+            android:layout_width="350dp"
+            android:layout_height="125dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rectangle_rounded_corners"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/map_im"
-            tools:ignore="ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/map"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/todo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/location_image"
+                tools:ignore="ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

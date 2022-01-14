@@ -128,7 +128,6 @@
             app:boxBackgroundColor="@color/white"
             app:boxStrokeColor="@color/design_orange"
             app:hintTextColor="@color/design_orange"
-            app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintStart_toStartOf="@+id/email_editText"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
             app:startIconContentDescription="@string/todo">
@@ -153,7 +152,6 @@
             app:boxStrokeColor="@color/design_orange"
             app:hintTextColor="@color/design_orange"
             app:layout_constraintEnd_toEndOf="@+id/email_editText"
-            app:layout_constraintStart_toEndOf="@+id/first_name_editText"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
             app:startIconContentDescription="@string/todo">
 
@@ -178,6 +176,33 @@
             app:layout_constraintTop_toBottomOf="@+id/confirm_password"
             tools:ignore="TextContrastCheck" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/city_menu"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/city"
+            android:minHeight="48dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/design_orange"
+            app:hintTextColor="@color/design_orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_password"
+            app:startIconContentDescription="@string/todo"
+            app:startIconDrawable="@drawable/ic_location_oran"
+            app:startIconTint="@color/design_orange"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                tools:ignore="TextContrastCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <CheckBox
             android:id="@+id/agree_checkBox"
             android:layout_width="wrap_content"
@@ -185,8 +210,7 @@
             android:layout_marginTop="32dp"
             android:buttonTint="@color/design_orange"
             android:text="@string/i_agree_on_terms_and_conditions"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/city_menu"
             app:layout_constraintTop_toBottomOf="@+id/date_of_birth" />
 
         <Button
@@ -194,13 +218,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:backgroundTint="@color/design_orange"
             android:text="@string/sign_up"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/agree_checkBox"
-            tools:ignore="DuplicateSpeakableTextCheck" />
+            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
         <TextView
             android:id="@+id/textView9"
@@ -219,9 +244,9 @@
             android:id="@+id/log_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="28dp"
             android:layout_marginBottom="12dp"
-            android:text="@string/login"
+            android:text="@string/login2"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView9"
@@ -234,6 +259,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="205dp" />
+
+        <TextView
+            android:id="@+id/termsAndCondition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/terms_and_cond2"
+            android:textColor="@color/design_orange"
+            app:layout_constraintBottom_toBottomOf="@+id/agree_checkBox"
+            app:layout_constraintStart_toEndOf="@+id/agree_checkBox"
+            tools:ignore="TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
