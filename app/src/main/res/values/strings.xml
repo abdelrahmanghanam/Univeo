@@ -82,4 +82,5 @@
     <string name="max_budget">Max budget</string>
     <string name="use_my_city">Use my city</string>
     <string name="there_are_no_results_found">There are no results found</string>
+    <string name="unable_to_detect_best_matching_faculty">Unable to detect best matching faculty</string>
 </resources>

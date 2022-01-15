@@ -12,6 +12,7 @@ import ghanam.com.univeo.adapters.QuizAdapter
 import ghanam.com.univeo.databinding.FragmentTestQuestionsBinding
 import ghanam.com.univeo.dataclasses.Quiz
 import ghanam.com.univeo.extensions.GeneralExt.showSnack
+import ghanam.com.univeo.singletons.DBReader
 
 
 class TestQuestionsFragment : Fragment() {
@@ -35,8 +36,20 @@ class TestQuestionsFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
 
         binding.submitButton.setOnClickListener {
-            if (checkAllAnswered()==true)
+            if (checkAllAnswered()==true) {
+                val chosen = chooseBestMatching()
+                var maxFees: Int
+                when(answers[2]){
+                    1-> maxFees=4000
+                    2-> maxFees=8000
+                    3-> maxFees=20000
+                    else->maxFees=20000
+                }
+                showSnack(maxFees.toString(),chosen,it)
+                DBReader.uniMatching=chooseFromAvailableUniversities(chosen,maxFees)
                 Navigation.findNavController(it).navigate(R.id.action_testQuestionsFragment_to_testResultFragment)
+
+            }
             else showSnack("Complete all answers","Error",it)
         }
 
@@ -50,6 +63,61 @@ class TestQuestionsFragment : Fragment() {
                 return false
         }
         return true
+    }
+
+
+    //some AI
+    private fun chooseBestMatching():String{
+        if (answers[0]==2)
+            return "medicine"
+        if (answers[0]==3)
+            return "business"
+        if (answers[0]==1)
+            if (answers[1]==1)
+                return "computer science"
+            if (answers[1]==2)
+                return "business"
+            if (answers[1]==3)
+                return "engineering"
+        return ""
+    }
+
+    fun chooseFromAvailableUniversities(facultyName:String, maxFees: Int):HashMap<String,String>?{
+        val universities = DBReader.universitiesList
+        var bestUniversity :HashMap<String, String>? = null
+        for (item in universities){
+
+            for (element in item.faculties) {
+                if (element["name"]!!.toString().lowercase()==facultyName.lowercase()) {
+                    val universityMatch = HashMap<String, String>()
+                    universityMatch["fac_name"] = "Faculty of " + element["name"]!!.toString()
+                    universityMatch["uni_name"] = item.name
+                    universityMatch["fees"] = element["fees"]!!.toString()
+                    universityMatch["city"] = item.city
+                    universityMatch["duration"] = element["duration"]!!.toString()
+                    universityMatch["rank"] = item.rank
+                    universityMatch["majors"] = "Majors: " + element["majors"]!!.toString()
+                    universityMatch["image_url"] = item.imageURL
+
+                    if (element["fees"]!!.toString().toInt() <= maxFees) {
+                        universityMatch["matching"] = "100"
+                    } else {
+                        universityMatch["matching"] = "75"
+                    }
+
+                    if (bestUniversity != null) {
+                        if (universityMatch["matching"]!!.toInt() > bestUniversity["matching"]!!.toInt())
+                            bestUniversity = universityMatch
+                    }else{
+                        bestUniversity=universityMatch
+                    }
+
+
+                }
+            }
+
+        }
+        return bestUniversity
     }
 
 

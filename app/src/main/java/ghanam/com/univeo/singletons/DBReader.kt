@@ -10,16 +10,17 @@ import ghanam.com.univeo.dataclasses.University
 import ghanam.com.univeo.dataclasses.UniversityGeneral
 
 object DBReader {
-    private lateinit var db: FirebaseFirestore
+     var db: FirebaseFirestore=Firebase.firestore
     val universitiesList : MutableList<University> = mutableListOf()
     val universitiesHomeList: MutableList<UniversityGeneral> = mutableListOf()
     val newsHomeList: MutableList<NewsGeneral> = mutableListOf()
     var dataRead=false
+    var uniMatching:HashMap<String,String>? = null
     var currentUni:University?=null
     var currentFaculty:HashMap<String, Any>?=null
     init {
 
-        db = Firebase.firestore
+
     }
 
     fun readData(universitiesAdapter: UniversitiesAdapter) {
@@ -74,5 +75,7 @@ object DBReader {
         currentUni=null
         return null
     }
+
+
 
 }

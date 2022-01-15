@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.squareup.picasso.Picasso
 import ghanam.com.univeo.databinding.FragmentTestResultBinding
 import ghanam.com.univeo.home.HomePageActivity
+import ghanam.com.univeo.singletons.DBReader
 
 class testResultFragment : Fragment() {
 
@@ -21,10 +23,31 @@ class testResultFragment : Fragment() {
 
         binding.backButton.setOnClickListener {
 
-            val intent = Intent(getActivity(),  HomePageActivity::class.java)
+            val intent = Intent(activity,  HomePageActivity::class.java)
             requireActivity().finish()
             startActivity(intent)
         }
+
+        if (DBReader.uniMatching==null){
+            binding.wholeLayout.visibility=View.GONE
+            binding.failText.visibility=View.VISIBLE
+        }else{
+            val universityMatch=DBReader.uniMatching
+            binding.facultyTitle.text=universityMatch!!["fac_name"]
+            binding.uniTitle.text=universityMatch["uni_name"]
+            binding.feesText.text=universityMatch["fees"]
+            binding.locationText.text=universityMatch["city"]
+            binding.yearsText.text=universityMatch["duration"]
+            binding.rankText.text=universityMatch["rank"]
+            binding.majorTitle.text=universityMatch["majors"]
+            binding.matchingPercent.text=universityMatch["matching"]+" %"
+            Picasso.with(context).load(universityMatch["image_url"]).into(binding.uniImage)
+
+
+
+        }
+
+
 
 
 

@@ -46,9 +46,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/whole_layout"
             android:layout_width="280dp"
             android:layout_height="380dp"
             android:background="@drawable/rectangle_rounded_corners"
@@ -207,7 +209,7 @@
                 android:id="@+id/location_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:text="@string/_0"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/ic_location"
@@ -281,6 +283,19 @@
                 app:layout_constraintTop_toTopOf="@+id/rank_text" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/fail_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:text="@string/unable_to_detect_best_matching_faculty"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
