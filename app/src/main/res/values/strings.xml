@@ -79,4 +79,7 @@
     <string name="app_description">App description</string>
     <string name="versionz">Version:</string>
     <string name="_1_0">1.0</string>
+    <string name="max_budget">Max budget</string>
+    <string name="use_my_city">Use my city</string>
+    <string name="there_are_no_results_found">There are no results found</string>
 </resources>

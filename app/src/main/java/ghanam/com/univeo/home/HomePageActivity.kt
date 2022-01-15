@@ -2,7 +2,6 @@ package ghanam.com.univeo.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
@@ -20,6 +19,7 @@ import ghanam.com.univeo.databinding.ActivityHomePageBinding
 import ghanam.com.univeo.databinding.NavHeaderHomePageBinding
 import ghanam.com.univeo.extensions.GeneralExt.toast
 import ghanam.com.univeo.login.LoginActivity
+import ghanam.com.univeo.search.SearchActivity
 import ghanam.com.univeo.singletons.CurrentUser
 import ghanam.com.univeo.test.TestActivity
 
@@ -64,7 +64,7 @@ class HomePageActivity : AppCompatActivity() {
         }
         binding.appBarHomePage.toolbar.setOnMenuItemClickListener {
             when(it.itemId) {
-                R.id.nav_search -> doThat() //your code
+                R.id.nav_search -> goToSearch() //your code
             }
             true
         }
@@ -84,6 +84,13 @@ class HomePageActivity : AppCompatActivity() {
 
     }
 
+    private fun goToSearch():Boolean {
+        val intent = Intent(this,  SearchActivity::class.java)
+        startActivity(intent)
+        finish()
+        return true
+    }
+
     private fun goToHomeFragment(navController: NavController): Boolean {
         if (navController.currentDestination!!.id!=R.id.nav_home) {
             navController.navigate(R.id.action_nav_about_to_nav_home)
@@ -101,12 +108,7 @@ class HomePageActivity : AppCompatActivity() {
         return true
     }
 
-    private fun doThat(): Boolean {
-        val intent = Intent(this,  LoginActivity::class.java)
-        startActivity(intent)
-        finish()
-        return true
-    }
+
 
     private fun goToTestActivity(): Boolean{
         val intent = Intent(this,  TestActivity::class.java)

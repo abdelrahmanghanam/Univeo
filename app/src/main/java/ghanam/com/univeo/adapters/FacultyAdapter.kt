@@ -1,6 +1,7 @@
 package ghanam.com.univeo.adapters
 
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +11,8 @@ import android.os.Bundle
 import androidx.navigation.Navigation
 import ghanam.com.univeo.R
 import ghanam.com.univeo.singletons.DBReader
+import ghanam.com.univeo.university.FacultyActivity
+import ghanam.com.univeo.university.UniversityActivity
 
 
 class FacultyAdapter(  private val Faculties: MutableList<HashMap<String, Any>>
@@ -34,7 +37,11 @@ class FacultyAdapter(  private val Faculties: MutableList<HashMap<String, Any>>
             facultyButton.text=currentFaculty["name"] as String
             facultyButton.setOnClickListener {
                 DBReader.currentFaculty=currentFaculty
-                Navigation.findNavController(it).navigate(R.id.action_universityFragment_to_facultyFragment)
+                if (currentFaculty!=null) {
+                    val intent = Intent(it.context, FacultyActivity::class.java)
+
+                    it.context.startActivity(intent)
+                }
             }
         }
     }

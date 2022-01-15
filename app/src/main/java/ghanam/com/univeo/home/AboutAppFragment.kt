@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import ghanam.com.univeo.R
 import ghanam.com.univeo.databinding.FragmentAboutAppBinding
-import ghanam.com.univeo.databinding.FragmentForgotPasswordBinding
 
 class AboutAppFragment : Fragment() {
     lateinit var binding: FragmentAboutAppBinding
@@ -16,8 +13,8 @@ class AboutAppFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding=FragmentAboutAppBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentAboutAppBinding.inflate(inflater, container, false)
 
         return binding.root
     }

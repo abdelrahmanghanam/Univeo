@@ -23,8 +23,8 @@ class NewsAdapter(  private val news: MutableList<NewsGeneral>
         )
     }
 
-    fun addMessage(msg: NewsGeneral) {
-        news.add(msg)
+    fun addNews(n: NewsGeneral) {
+        news.add(n)
         notifyItemInserted(news.size - 1)
     }
 
@@ -32,12 +32,14 @@ class NewsAdapter(  private val news: MutableList<NewsGeneral>
         val currentNews = news[position]
         holder.binding.apply {
             newsTitle.text=currentNews.title
-            Picasso.with(newsImage.context).load(currentNews.imgUrl).into(newsImage);
+            Picasso.with(newsImage.context).load(currentNews.imgUrl).into(newsImage)
 
             detailsButton.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(currentNews.newsUrl))
                 detailsButton.context.startActivity(browserIntent)
             }
+
+
 
 
 
