@@ -4,7 +4,6 @@ package ghanam.com.univeo.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import ghanam.com.univeo.databinding.QuestionCardBinding
 import ghanam.com.univeo.dataclasses.Quiz
@@ -21,10 +20,7 @@ class QuizAdapter(private val questions: MutableList<Quiz>, private val answers:
         )
     }
 
-    fun addQustion(question: Quiz) {
-        questions.add(question)
-        notifyItemInserted(questions.size - 1)
-    }
+
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val currentQuestion = questions[position]

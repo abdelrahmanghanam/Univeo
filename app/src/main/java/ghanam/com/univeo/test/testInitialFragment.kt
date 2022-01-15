@@ -17,7 +17,7 @@ class testInitialFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentTestInitialBinding.inflate(inflater, container, false)
         binding.getStartedButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_testInitialFragment_to_testQuestionsFragment)

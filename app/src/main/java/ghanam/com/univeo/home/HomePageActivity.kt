@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import com.google.firebase.auth.FirebaseAuth
 import ghanam.com.univeo.R
@@ -53,9 +54,9 @@ class HomePageActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         navView.setNavigationItemSelectedListener{ it: MenuItem ->
             when (it.itemId) {
-                R.id.nav_home->goToHomeFragment(navController)
+                R.id.nav_home->goToHomeFragment(navController,binding.appBarHomePage.toolbar)
                 R.id.nav_test -> goToTestActivity()
-                R.id.nav_about->goToAboutFragment(navController)
+                R.id.nav_about->goToAboutFragment(navController,binding.appBarHomePage.toolbar)
                 R.id.nav_out-> signOut()
                 else -> {
                     true
@@ -91,9 +92,10 @@ class HomePageActivity : AppCompatActivity() {
         return true
     }
 
-    private fun goToHomeFragment(navController: NavController): Boolean {
+    private fun goToHomeFragment(navController: NavController, toolbar: Toolbar): Boolean {
         if (navController.currentDestination!!.id!=R.id.nav_home) {
             navController.navigate(R.id.action_nav_about_to_nav_home)
+            toolbar.title="Home"
         }
         return true
     }
@@ -118,9 +120,10 @@ class HomePageActivity : AppCompatActivity() {
     }
 
 
-    private fun goToAboutFragment(navController: NavController): Boolean{
+    private fun goToAboutFragment(navController: NavController, toolbar: Toolbar): Boolean{
         if (navController.currentDestination!!.id!=R.id.nav_about) {
             navController.navigate(R.id.action_nav_home_to_nav_about)
+            toolbar.title="About"
         }
         return true
     }

@@ -5,13 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.squareup.picasso.Picasso
 import ghanam.com.univeo.R
 import ghanam.com.univeo.adapters.MajorAdapter
 import ghanam.com.univeo.databinding.ActivityFacultyBinding
-import ghanam.com.univeo.databinding.ActivityUniversityBinding
 import ghanam.com.univeo.singletons.DBReader
 
 class FacultyActivity : AppCompatActivity() {
@@ -21,7 +19,7 @@ class FacultyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_faculty)
-        getSupportActionBar()!!.hide() //hide the title bar
+        supportActionBar!!.hide() //hide the title bar
 
         //preparing expandable card
         binding.dropUpIcon.setOnClickListener {

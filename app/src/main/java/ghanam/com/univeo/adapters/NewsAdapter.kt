@@ -23,10 +23,6 @@ class NewsAdapter(  private val news: MutableList<NewsGeneral>
         )
     }
 
-    fun addNews(n: NewsGeneral) {
-        news.add(n)
-        notifyItemInserted(news.size - 1)
-    }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val currentNews = news[position]

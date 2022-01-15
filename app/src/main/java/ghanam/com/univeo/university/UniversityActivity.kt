@@ -20,7 +20,7 @@ class UniversityActivity : YouTubeBaseActivity() {
     private lateinit var binding: ActivityUniversityBinding
     private lateinit var facultiesAdapter: FacultyAdapter
     private lateinit var faculties:MutableList<HashMap<String, Any>>
-    val api_key="AIzaSyACe5Tb8eubz3pquUNdt4kaBU0u490rO4g"
+    private val apiKey="AIzaSyACe5Tb8eubz3pquUNdt4kaBU0u490rO4g"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_university)
@@ -34,14 +34,14 @@ class UniversityActivity : YouTubeBaseActivity() {
             startActivity(intent)
         }
         val longtude=currentUni!!.longtidue
-        val latitude=currentUni!!.latitude
+        val latitude=currentUni.latitude
         val mapUrl="https://www.google.com/maps?q=$longtude,$latitude"
         binding.map.setOnClickListener {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(mapUrl))
             startActivity(browserIntent)
         }
 
-        binding.youtubeVideo.initialize(api_key, object : YouTubePlayer.OnInitializedListener{
+        binding.youtubeVideo.initialize(apiKey, object : YouTubePlayer.OnInitializedListener{
 
             override fun onInitializationSuccess(
                 provider: YouTubePlayer.Provider?,

@@ -17,7 +17,6 @@ import ghanam.com.univeo.databinding.FragmentLoginBinding
 import ghanam.com.univeo.extensions.GeneralExt.toast
 import ghanam.com.univeo.home.HomePageActivity
 import ghanam.com.univeo.singletons.CurrentUser
-import ghanam.com.univeo.singletons.DBReader
 
 
 class LoginFragment : Fragment() {
@@ -31,7 +30,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         signInInputsArray = arrayOf(binding.loginEditText, binding.passwordEditText)
 
@@ -67,9 +66,9 @@ class LoginFragment : Fragment() {
                     db.collection("users").document(userId).get().addOnSuccessListener {
                         val data= it.data
                         CurrentUser.firstName = data!!["first_name"].toString().replaceFirstChar(Char::titlecase)
-                        CurrentUser.lastName =data!!["last_name"].toString().replaceFirstChar(Char::titlecase)
-                        CurrentUser.city =data!!["city"].toString().replaceFirstChar(Char::titlecase)
-                        val intent = Intent(getActivity(), HomePageActivity::class.java)
+                        CurrentUser.lastName =data["last_name"].toString().replaceFirstChar(Char::titlecase)
+                        CurrentUser.city =data["city"].toString().replaceFirstChar(Char::titlecase)
+                        val intent = Intent(activity, HomePageActivity::class.java)
                         requireActivity().finish()
                         startActivity(intent)
                     }.addOnFailureListener {
@@ -78,7 +77,7 @@ class LoginFragment : Fragment() {
                     }
 
                 } else {
-                    toast("Failed to create user: "+signIn.getException().toString())
+                    toast("Failed to create user: "+signIn.exception.toString())
                     binding.progressBar.visibility=View.GONE
                 }
             }

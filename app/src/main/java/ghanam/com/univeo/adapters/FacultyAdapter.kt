@@ -6,13 +6,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ghanam.com.univeo.databinding.FacultyCardBinding
-import ghanam.com.univeo.dataclasses.FacultyGeneral
-import android.os.Bundle
-import androidx.navigation.Navigation
-import ghanam.com.univeo.R
 import ghanam.com.univeo.singletons.DBReader
 import ghanam.com.univeo.university.FacultyActivity
-import ghanam.com.univeo.university.UniversityActivity
 
 
 class FacultyAdapter(  private val Faculties: MutableList<HashMap<String, Any>>
@@ -26,10 +21,7 @@ class FacultyAdapter(  private val Faculties: MutableList<HashMap<String, Any>>
         )
     }
 
-    fun addFaculty(fac: HashMap<String, Any>) {
-        Faculties.add(fac)
-        notifyItemInserted(Faculties.size - 1)
-    }
+
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val currentFaculty = Faculties[position]

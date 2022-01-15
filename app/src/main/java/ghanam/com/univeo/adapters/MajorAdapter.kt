@@ -17,10 +17,7 @@ class MajorAdapter(  private val majors: MutableList<String>
         )
     }
 
-    fun addFaculty(msg: String) {
-        majors.add(msg)
-        notifyItemInserted(majors.size - 1)
-    }
+
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val currentMajor = majors[position]

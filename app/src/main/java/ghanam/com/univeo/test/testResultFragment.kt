@@ -40,7 +40,8 @@ class testResultFragment : Fragment() {
             binding.yearsText.text=universityMatch["duration"]
             binding.rankText.text=universityMatch["rank"]
             binding.majorTitle.text=universityMatch["majors"]
-            binding.matchingPercent.text=universityMatch["matching"]+" %"
+            val percentText=universityMatch["matching"]+" %"
+            binding.matchingPercent.text=percentText
             Picasso.with(context).load(universityMatch["image_url"]).into(binding.uniImage)
 
 

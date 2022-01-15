@@ -38,14 +38,13 @@ class TestQuestionsFragment : Fragment() {
         binding.submitButton.setOnClickListener {
             if (checkAllAnswered()==true) {
                 val chosen = chooseBestMatching()
-                var maxFees: Int
+                val maxFees: Int
                 when(answers[2]){
                     1-> maxFees=4000
                     2-> maxFees=8000
                     3-> maxFees=20000
                     else->maxFees=20000
                 }
-                showSnack(maxFees.toString(),chosen,it)
                 DBReader.uniMatching=chooseFromAvailableUniversities(chosen,maxFees)
                 Navigation.findNavController(it).navigate(R.id.action_testQuestionsFragment_to_testResultFragment)
 
