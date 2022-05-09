@@ -65,10 +65,7 @@ class UniversityActivity : YouTubeBaseActivity() {
         binding.cityTv.text=currentUni.city
         binding.briefText.text=currentUni.brief
         binding.rankTv.text=currentUni.rank
-
-
-
-        //news adapter maker
+        binding.universityName.text=currentUni.name
         facultiesAdapter = FacultyAdapter(faculties)
         binding.facultiesRecycler.adapter=facultiesAdapter
         binding.facultiesRecycler.layoutManager = LinearLayoutManager(applicationContext)
